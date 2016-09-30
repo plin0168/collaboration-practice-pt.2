@@ -3,40 +3,33 @@ var
 Character = require('../models/characters.js')
 
 module.exports = {
-
     index: function(req, res) {
         Character.find({}, function(err, characters) {
                 res.json(characters)
-            }) // res.json({message: "All fruits"})
+            })
     },
 
     create: function(req, res) {
-      //create new fruit
       Character.create(req.body, function(err, character) {
-
-        res.json({message: "Character Created!", character: character}) 
-  })
-  },
+        res.json({message: "Character Created!", character: character})
+      })
+    },
 
     show: function(req, res) {
-        Charater.findById(req.params.id, function(err, fruit) {
-                res.json(fruit)
+        Charater.findById(req.params.id, function(err, character) {
+                res.json(character)
             })
-            //show specific fruit
     },
 
     update: function(req, res) {
-        //update a specific fruit
-        Fruit.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, fruit) {
-                res.json({message: "Fruit Updated", updatedfruit: fruit})
+        Character.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, character) {
+                res.json({message: "Charater Updated", updatedcharacter: character})
             })
           },
 
     destroy: function(req, res) {
-        //delete a specific fruit
-        Fruit.findByIdAndRemove(req.params.id, function(err) {
-            res.json({
-                message: "Fruit Deleted"
-            })
+        Character.findByIdAndRemove(req.params.id, function(err) {
+            res.json({message: "Character Deleted"})
         })
-    },
+    }
+}

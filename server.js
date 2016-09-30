@@ -14,10 +14,8 @@ mongoose.connect('mongodb://localhost/characters', function(err) {
     }
 })
 
-
 app.use(logger('dev'))
 app.use(bodyParser.json());
-
 
 characterRoutes = require('./routes/character.js')
 app.get('/', function(req, res) {
