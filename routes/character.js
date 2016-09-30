@@ -12,6 +12,5 @@ characterRouter.route('/characters/:id')
     .get(charactersController.show)
     .patch(charactersController.update)
     .delete(charactersController.destroy)
-    .post(charactersController.addFriend)
 
 module.exports = characterRouter
