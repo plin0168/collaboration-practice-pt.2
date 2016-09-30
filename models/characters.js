@@ -12,4 +12,4 @@ var
 
 var Character = mongoose.model('Character', characterSchema)
 
-modules.exports = Character
+module.exports = Character
